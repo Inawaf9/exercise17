@@ -155,7 +155,7 @@ public class PlaceService {
     public String getGoogleMapsUrl(Integer placeId) {
         Place place = placeRepository.findPlaceById(placeId);
 
-        if (place == null) return null;
+        if (place == null) throw new ApiException("Place not found");
 
         String placeName = URLEncoder.encode(place.getName(), StandardCharsets.UTF_8);
 
